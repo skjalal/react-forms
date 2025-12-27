@@ -1,5 +1,7 @@
 import React from "react";
 
+import Input from "./Input.tsx";
+
 const Login: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -14,15 +16,8 @@ const Login: React.FC = () => {
       <h2>Login</h2>
 
       <div className="control-row">
-        <div className="control no-margin">
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" name="email" />
-        </div>
-
-        <div className="control no-margin">
-          <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" />
-        </div>
+        <Input label="Email" id="email" type="email" name="email" />
+        <Input label="Password" id="password" type="password" name="password" />
       </div>
 
       <p className="form-actions">
