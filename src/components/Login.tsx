@@ -1,14 +1,12 @@
-import React, { useRef } from "react";
+import React from "react";
 
 const Login: React.FC = () => {
-  const email = useRef<HTMLInputElement>(null);
-  const password = useRef<HTMLInputElement>(null);
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const enteredEmail = email.current?.value || "";
-    const enteredPassword = password.current?.value || "";
-    console.log(enteredEmail);
-    console.log(enteredPassword);
+    const fd = new FormData(event.currentTarget);
+    const { email, password } = Object.fromEntries(fd);
+    console.log(email);
+    console.log(password);
   };
 
   return (
@@ -18,12 +16,12 @@ const Login: React.FC = () => {
       <div className="control-row">
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
-          <input ref={email} id="email" type="email" name="email" />
+          <input id="email" type="email" name="email" />
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input ref={password} id="password" type="password" name="password" />
+          <input id="password" type="password" name="password" />
         </div>
       </div>
 
