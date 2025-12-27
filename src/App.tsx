@@ -1,5 +1,5 @@
 import Header from "./components/Header.tsx";
-import Login from "./components/Login.tsx";
+import Signup from "./components/Signup.tsx";
 import "./App.css";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <>
       <Header />
       <main>
-        <Login />
+        <Signup />
       </main>
     </>
   );

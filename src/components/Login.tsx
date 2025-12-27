@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useRef } from "react";
 
 const Login: React.FC = () => {
+  const email = useRef<HTMLInputElement>(null);
+  const password = useRef<HTMLInputElement>(null);
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const enteredEmail = email.current?.value || "";
+    const enteredPassword = password.current?.value || "";
+    console.log(enteredEmail);
+    console.log(enteredPassword);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h2>Login</h2>
 
       <div className="control-row">
         <div className="control no-margin">
           <label htmlFor="email">Email</label>
-          <input id="email" type="email" name="email" />
+          <input ref={email} id="email" type="email" name="email" />
         </div>
 
         <div className="control no-margin">
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" name="password" />
+          <input ref={password} id="password" type="password" name="password" />
         </div>
       </div>
 
