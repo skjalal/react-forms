@@ -5,4 +5,18 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;
 }
 
-export { type InputProps };
+type FormState = {
+  errors: string[];
+  enteredValues?: {
+    email: string;
+    password: string;
+    confirmPassword: string;
+    firstName: string;
+    lastName: string;
+    role: string;
+    acquisitionChannel: string[];
+    terms: boolean;
+  };
+};
+
+export type { InputProps, FormState };
